@@ -19,4 +19,8 @@ export default class Item extends Lightning.Component{
     get action(){
         return this._action;
     }
+
+    get label(){
+        return this.text.text;
+    }
 }

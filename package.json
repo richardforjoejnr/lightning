@@ -2,6 +2,23 @@
   "name": "com.metrological.app.TicTacToe",
   "description": "TicTacToe",
   "dependencies": {
-    "wpe-lightning-sdk": "WebPlatformForEmbedded/Lightning-SDK"
+    "wpe-lightning-sdk": "github:rdkcentral/Lightning-SDK#e90095718b1a76286ee56d425bb3930f13625959"
+  },
+  "scripts": {
+    "cypress": "cypress open",
+    "cy:test": "cypress run --headless",
+    "cy:test:unit": "cypress run --headless --spec 'cypress/integration/unit/**/*'",
+    "cy:test:e2e": "cypress run --headless --spec 'cypress/integration/e2e/**/*'"
+
+  },
+  "devDependencies": {
+    "cypress": "^5.6.0",
+    "cypress-cucumber-preprocessor": "^4.0.0",
+    "cypress-plugin-snapshots": "^1.4.4",
+    "js-base64": "^2.5.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "step_definitions": "cypress/support/step_definitions/"
   }
 }

@@ -1,0 +1,13 @@
+{
+    "screenshotOnRunFailure": true,
+    "trashAssetsBeforeRuns": true,
+    "videoCompression": 32,
+    "video": true,
+    "fixturesFolder": "cypress/fixtures",
+    "integrationFolder": "cypress/integration",
+    "pluginsFile": "cypress/plugins",
+    "supportFile":"cypress/support",
+    "screenshotsFolder": "cypress/screenshots",
+    "videosFolder": "cypress/videos",
+    "testFiles": "**/*.*"
+  }

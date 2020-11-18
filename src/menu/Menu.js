@@ -61,4 +61,9 @@ export default class Menu extends Lightning.Component{
         // store new index
         this._index = idx;
     }
+
+    _getIndex(){
+        
+        return this._index;
+    }
 }
