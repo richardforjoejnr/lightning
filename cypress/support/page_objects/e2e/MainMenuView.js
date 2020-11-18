@@ -13,15 +13,29 @@ const BODY = 'body'
 
 class MainMenuView {
 
+  static instance;
+
+  static getInstance() {
+    if (this.instance) {
+        return this.instance;
+    } else {
+        return new MainMenuView();;
+    }
+}
+
   // Actions
 
-  static launchApp()
+  launchApp()
   {
     cy.visit(APP_URL)
     
   }
+
+
+  // Actions
+
   
-  static navigate(direction)
+  navigate(direction)
   {
     cy.wait(5000)
     switch(direction) {
@@ -35,40 +49,46 @@ class MainMenuView {
   }
   }
 
-  static select()
+  select()
   {
     cy.get(BODY).type('{enter}')
   }
 
+  selectStartGame()
+  {
+    cy.get(BODY).type('{enter}')
+    return new GameView();
+  } 
+
   // GETTERS
-  static getMenuItems(Menu)
+  getMenuItems(Menu)
   {
     cy.get(MENU_ITEMS).find(`[texture-text="${Menu.toUpperCase()}"]`)
   }
 
 
   // ASSERTIONS
-  static assertLogoIsPresent()
+  assertLogoIsPresent()
   {
     cy.get(LOGO_COMPONENT).should('exist');
   }
 
-  static assertTitleText(text)
+  assertTitleText(text)
 {
     return cy.get(LOGO_COMPONENT).invoke('attr', 'texture-text').should('contain', `${text}`)
 }
 
-static assertTheAppVersion(text)
+assertTheAppVersion(text)
 {
     return cy.get(APP_VERSION_COMPONENT).invoke('attr', 'texture-text').should('contain', `${text}`)
 }
 
-static assertNoOfMenuItems(ItemsNumber)
+assertNoOfMenuItems(ItemsNumber)
 {
     return cy.get(MENU_ITEMS).should('have.length',parseInt(ItemsNumber))
 }
 
-static assertFocusIndicator(MenuItem)
+assertFocusIndicator(MenuItem)
 {
   let focus;
   switch(MenuItem) {
