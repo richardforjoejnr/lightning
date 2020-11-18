@@ -2,10 +2,10 @@
 
 const SCOREBOARD_ITEMS = 'div[ref="ScoreBoard"] div'
 const PLAYER_SCORE_COMPONENT = 'div[ref="Player"]'
-const MENU_COMPONENT = 'div[ref=Items]'
-const FOCUS_INDICATOR_COMPONENT = 'div[ref=FocusIndicator]:visible'
+const GAME_COMPONENT = 'div[ref="Game"]'
+const PLAYER_POSITION = 'div[ref="PlayerPosition"]'
+const LOGO_COMPONENT = 'div[ref=Logo]:visible'
 const APP_VERSION_COMPONENT = 'div[ref=Text]:visible'
-const MENU_ITEMS = 'div[type=Item]'
 
 const BODY = 'body'
  
@@ -49,20 +49,41 @@ static getInstance() {
   }
   }
 
-  static select()
+  play()
   {
     cy.get(BODY).type('{enter}')
   }
 
-  // Play
 
   // GETTERS
 
-// Get available boxes
+  getCurrentPlayerPosition()
+  {
+    cy.get(PLAYER_POSITION).invoke('attr', 'y')
+  }
+
 
   // ASSERTIONS
 
+  assertTitleText(text)
+{
+    return cy.get(LOGO_COMPONENT).invoke('attr', 'texture-text').should('contain', `${text}`)
+}
 
+assertTheAppVersion(text)
+{
+    return cy.get(APP_VERSION_COMPONENT).invoke('attr', 'texture-text').should('contain', `${text}`)
+}
+
+assertGameIsPresent()
+{
+  cy.get(GAME_COMPONENT).should('exist');
+}
+
+assertScoreIsPresent()
+{
+  cy.get(SCOREBOARD_ITEMS).should('exist');
+}
 
 }
 

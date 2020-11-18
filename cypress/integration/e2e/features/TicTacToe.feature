@@ -23,3 +23,8 @@ Scenario: There should be 4 items in the Menu
      Given I launch the game
     When The logo is loaded
     Then There are "4" items in the Menu 
+
+Scenario: "Start New Game" is selected
+    Given I launch the game
+    When I select Start New Game
+    Then The game is launched

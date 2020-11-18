@@ -1,3 +1,4 @@
+import GameView from './GameView';
 
 const APP_URL = 'http://127.0.0.1:8081/'
 
@@ -56,6 +57,7 @@ class MainMenuView {
 
   selectStartGame()
   {
+    cy.wait(5000)
     cy.get(BODY).type('{enter}')
     return new GameView();
   } 

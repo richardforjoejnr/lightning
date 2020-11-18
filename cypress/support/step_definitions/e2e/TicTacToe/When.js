@@ -11,3 +11,8 @@ When(`The logo is loaded`, () => {
     mainMenuScreen.navigate(direction);
   })
   
+  When(`I select Start New Game`, () => {
+    const mainMenuScreen = MainMenuView.getInstance();
+    mainMenuScreen.selectStartGame();
+  })
+  
