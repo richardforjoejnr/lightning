@@ -14,7 +14,7 @@ const BODY = 'body'
 
 class MainMenuView {
 
-  static instance;
+  static instance: MainMenuView;
 
   static getInstance() {
     if (this.instance) {
@@ -36,7 +36,7 @@ class MainMenuView {
   // Actions
 
   
-  navigate(direction)
+  navigate(direction: string)
   {
     cy.wait(5000)
     switch(direction) {
@@ -63,7 +63,7 @@ class MainMenuView {
   } 
 
   // GETTERS
-  getMenuItems(Menu)
+  getMenuItems(Menu: string)
   {
     cy.get(MENU_ITEMS).find(`[texture-text="${Menu.toUpperCase()}"]`)
   }
@@ -75,22 +75,22 @@ class MainMenuView {
     cy.get(LOGO_COMPONENT).should('exist');
   }
 
-  assertTitleText(text)
+  assertTitleText(text: string)
 {
     return cy.get(LOGO_COMPONENT).invoke('attr', 'texture-text').should('contain', `${text}`)
 }
 
-assertTheAppVersion(text)
+assertTheAppVersion(text: string)
 {
     return cy.get(APP_VERSION_COMPONENT).invoke('attr', 'texture-text').should('contain', `${text}`)
 }
 
-assertNoOfMenuItems(ItemsNumber)
+assertNoOfMenuItems(ItemsNumber: string)
 {
     return cy.get(MENU_ITEMS).should('have.length',parseInt(ItemsNumber))
 }
 
-assertFocusIndicator(MenuItem)
+assertFocusIndicator(MenuItem: string)
 {
   let focus;
   switch(MenuItem) {

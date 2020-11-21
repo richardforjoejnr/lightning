@@ -30,3 +30,11 @@ beforeEach(() => {
       Cypress.runner.stop()
     }
   });
+
+  Cypress.Commands.add('refCy', (value) => {
+    return cy.get(`[ref=${value}]`)
+  })
+
+  Cypress.Commands.add('texturetextCy', (value) => {
+    return cy.get(`[texture-text=${value}]`)
+  })

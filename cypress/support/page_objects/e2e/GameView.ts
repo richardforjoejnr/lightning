@@ -12,7 +12,7 @@ const BODY = 'body'
 // document.querySelector("div[ref=Logo]").getAttribute('texture-text')
 
 class GameView {
-    static instance;
+    static instance: GameView;
   
 
   constructor() {
@@ -30,7 +30,7 @@ static getInstance() {
 
 // Actions
 
-  navigate(direction)
+  navigate(direction: string)
   {
     cy.wait(5000)
     switch(direction) {
@@ -65,12 +65,12 @@ static getInstance() {
 
   // ASSERTIONS
 
-  assertTitleText(text)
+  assertTitleText(text: string)
 {
     return cy.get(LOGO_COMPONENT).invoke('attr', 'texture-text').should('contain', `${text}`)
 }
 
-assertTheAppVersion(text)
+assertTheAppVersion(text: string)
 {
     return cy.get(APP_VERSION_COMPONENT).invoke('attr', 'texture-text').should('contain', `${text}`)
 }
