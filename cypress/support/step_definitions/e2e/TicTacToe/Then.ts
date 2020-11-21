@@ -1,6 +1,6 @@
 import { Then, And } from "cypress-cucumber-preprocessor/steps";
-import MainMenuView from './../../../page_objects/e2e/MainMenuView';
-import GameView from './../../../page_objects/e2e/GameView';
+import MainMenuView from '../../../page_objects/e2e/MainMenuView';
+import GameView from '../../../page_objects/e2e/GameView';
 
 Then(`I see {string} in the page title`, (title) => {
   const mainMenuScreen = MainMenuView.getInstance();

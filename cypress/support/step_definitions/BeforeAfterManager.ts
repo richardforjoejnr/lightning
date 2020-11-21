@@ -1,7 +1,4 @@
-const {
-  Before,
-  After
-} = require("cypress-cucumber-preprocessor/steps");
+import { Before, After } from "cypress-cucumber-preprocessor/steps";
 
 Before(() => {
   cy.log("BEFORE ALL TESTS")
