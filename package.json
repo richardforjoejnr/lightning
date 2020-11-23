@@ -6,6 +6,7 @@
   },
   "scripts": {
     "cypress": "cypress open",
+    "cy:run": "node cypress.js",
     "cy:test": "cypress run --headless",
     "cy:test:unit": "cypress run --headless --spec 'cypress/integration/unit/**/*'",
     "cy:test:e2e": "cypress run --headless --spec 'cypress/integration/e2e/**/*'"
