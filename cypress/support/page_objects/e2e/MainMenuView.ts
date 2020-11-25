@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 import GameView from './GameView';
 
 const APP_URL = 'http://127.0.0.1:8081/'
@@ -15,6 +17,7 @@ const BODY = 'body'
 class MainMenuView {
 
   static instance: MainMenuView;
+  private currentMenuName: string
 
   static getInstance() {
     if (this.instance) {
@@ -29,6 +32,7 @@ class MainMenuView {
   launchApp()
   {
     cy.visit(APP_URL)
+    this._setCurrentMenuItem('Start New Game')
     
   }
 
@@ -39,14 +43,19 @@ class MainMenuView {
   navigate(direction: string)
   {
     cy.wait(5000)
+    cy.log(direction)
+    // cy.navigateMenu(direction);
+
     switch(direction) {
-      case "up":
-        cy.get(BODY).type('{uparrow}')
+      case "Start New Game":
         break;
-      case "down":
+      case "Continue":
         cy.get(BODY).type('{downarrow}')
         break;
-
+      case "About":
+        cy.get(BODY).type('{downarrow}')
+        cy.get(BODY).type('{downarrow}')
+        break;
   }
   }
 
@@ -55,9 +64,15 @@ class MainMenuView {
     cy.get(BODY).type('{enter}')
   }
 
+  dismiss()
+  {
+    cy.get(BODY).type('{backspace}')
+  }
+
   selectStartGame()
   {
     cy.wait(5000)
+    cy.navigateMenu("Start New Game")
     cy.get(BODY).type('{enter}')
     return new GameView();
   } 
@@ -68,7 +83,29 @@ class MainMenuView {
     cy.get(MENU_ITEMS).find(`[texture-text="${Menu.toUpperCase()}"]`)
   }
 
+  _getCurrentMenuItem()
+  {
+  return this.currentMenuName;
+  }
 
+  _getMenuItemPosition(menu){
+    switch(menu) {
+      case "Start New Game": 
+        return 1
+      case "Continue":
+        return 2
+      case "About":
+        return 3
+      case "Exit":
+        return 4
+  }
+  }
+  // SETTERS
+
+  _setCurrentMenuItem(menu:string)
+  {
+    return this.currentMenuName = menu;
+  }
   // ASSERTIONS
   assertLogoIsPresent()
   {
@@ -111,6 +148,8 @@ assertFocusIndicator(MenuItem: string)
     return cy.get(FOCUS_INDICATOR_COMPONENT).invoke('attr', 'y').should('eq', `${focus}`)
 }
 
+
 }
+
 
 export default MainMenuView;

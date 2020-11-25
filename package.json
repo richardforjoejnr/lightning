@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@types/cypress-cucumber-preprocessor": "^4.0.0",
-    "cypress": "^5.6.0",
+    "cypress": "^6.0.0",
     "cypress-cucumber-preprocessor": "^4.0.0",
     "cypress-plugin-snapshots": "^1.4.4",
     "js-base64": "^2.5.2",

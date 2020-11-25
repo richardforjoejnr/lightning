@@ -10,5 +10,6 @@ declare namespace Cypress {
       */
       refCy(value: string): Chainable<Element>
       texturetextCy(value: string): Chainable<Element>
+      navigateMenu(value: string): Chainable<Element>
     }
   }

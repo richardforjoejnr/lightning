@@ -6,7 +6,7 @@ When(`The logo is loaded`, () => {
     mainMenuScreen.assertLogoIsPresent();
   })
 
- When(`I navigate {string}`, (direction) => {
+ When(`I navigate to {string}`, (direction) => {
     const mainMenuScreen = MainMenuView.getInstance();
     mainMenuScreen.navigate(direction);
   })

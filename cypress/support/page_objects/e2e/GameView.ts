@@ -1,4 +1,5 @@
 
+/// <reference types="cypress" />
 
 const SCOREBOARD_ITEMS = 'div[ref="ScoreBoard"] div'
 const PLAYER_SCORE_COMPONENT = 'div[ref="Player"]'
@@ -30,8 +31,11 @@ static getInstance() {
 
 // Actions
 
+
+
   navigate(direction: string)
   {
+    
     cy.wait(5000)
     switch(direction) {
       case "up":
@@ -54,7 +58,10 @@ static getInstance() {
     cy.get(BODY).type('{enter}')
   }
 
-
+  dismiss()
+  {
+    cy.get(BODY).type('{backspace}')
+  }
   // GETTERS
 
   getCurrentPlayerPosition()
