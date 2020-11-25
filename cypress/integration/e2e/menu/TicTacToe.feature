@@ -16,7 +16,7 @@ Scenario: "Start New Game" is the default item
 
 Scenario: Selecting "Continue" from the Menu
      Given I launch the game
-    When I navigate "down"
+    When I navigate to "Continue"
     Then "Continue" is in focus   
 
 Scenario: There should be 4 items in the Menu
