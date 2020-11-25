@@ -44,7 +44,7 @@ class MainMenuView {
   {
     cy.wait(5000)
     cy.log(direction)
-    // cy.navigateMenu(direction);
+    // cy.navigateMenu(direction); TODO
 
     switch(direction) {
       case "Start New Game":
