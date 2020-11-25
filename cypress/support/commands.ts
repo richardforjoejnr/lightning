@@ -25,6 +25,9 @@ import MainMenuView from '../support/page_objects/e2e/MainMenuView';
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 Cypress.Commands.add('navigateMenu', (menu) => {
+
+    // TODO - Logic to navigate to a menu based on the current position
+    
     const mainMenuScreen = MainMenuView.getInstance();
     
     let navigateToPosition = 0;
@@ -53,6 +56,7 @@ Cypress.Commands.add('navigateMenu', (menu) => {
 //   }
 
     
+
 
     switch (true) {
 
