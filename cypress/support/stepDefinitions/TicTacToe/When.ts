@@ -1,5 +1,5 @@
 import { When } from "cypress-cucumber-preprocessor/steps";
-import MainMenuView from '../../../page_objects/e2e/MainMenuView';
+import MainMenuView from '../../pageObjects/MainMenuView';
 
 When(`The logo is loaded`, () => {
     const mainMenuScreen = MainMenuView.getInstance();
