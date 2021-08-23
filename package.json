@@ -14,10 +14,10 @@
     "start:ci": "serve --no-clipboard --listen ${PORT:-8080}",
     "stub": "node -r esm ./stub-server/server.start.js",
     "test:ci:ui": "start-server-and-test ci:serve http://localhost:8080 cypress:run:ci:ui",
-    "test:cypress": "start-server-and-test ci:serve http://localhost:8080 cypress:run",
+    "test:cypress": "start-server-and-test ci:serve http://localhost:8080 cy:test",
     "test:debug": "start-server-and-test ci:serve http://localhost:8080 cypress:open",
     "cypress": "cypress open",
-    "cy:run": "node cypress.js",
+    "cy:run": "cypress run",
     "cy:test": "cypress run --headless",
     "cy:test:unit": "cypress run --headless --spec 'cypress/integration/unit/**/*'",
     "cy:test:e2e": "cypress run --headless --spec 'cypress/integration/e2e/**/*'"
