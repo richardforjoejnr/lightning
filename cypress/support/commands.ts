@@ -1,4 +1,4 @@
-import MainMenuView from '../support/page_objects/e2e/MainMenuView';
+import MainMenuView from './pageObjects/MainMenuView';
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite

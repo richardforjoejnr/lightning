@@ -5,22 +5,67 @@
     "wpe-lightning-sdk": "github:rdkcentral/Lightning-SDK#e90095718b1a76286ee56d425bb3930f13625959"
   },
   "scripts": {
+    "build": "lng build",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "ci:serve": "lng build && npx http-server build -p 8080",
+    "commit": "git-cz",
+    "lint": "eslint --fix ./src/*.js ./src/**/*.js",
+    "start:ci": "serve --no-clipboard --listen ${PORT:-8080}",
+    "stub": "node -r esm ./stub-server/server.start.js",
+    "test:ci:ui": "start-server-and-test ci:serve http://localhost:8080 cypress:run:ci:ui",
+    "test:cypress": "start-server-and-test ci:serve http://localhost:8080 cypress:run",
+    "test:debug": "start-server-and-test ci:serve http://localhost:8080 cypress:open",
     "cypress": "cypress open",
     "cy:run": "node cypress.js",
     "cy:test": "cypress run --headless",
     "cy:test:unit": "cypress run --headless --spec 'cypress/integration/unit/**/*'",
     "cy:test:e2e": "cypress run --headless --spec 'cypress/integration/e2e/**/*'"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "devDependencies": {
     "@types/cypress-cucumber-preprocessor": "^4.0.0",
-    "cypress": "^6.0.0",
+    "husky": "^4.2.5",
+    "cz-conventional-changelog": "3.3.0",
+    "commitizen": "^4.1.2",
+    "cypress": "^8.3.0",
+    "lint-staged": "^10.1.2",
     "cypress-cucumber-preprocessor": "^4.0.0",
     "cypress-plugin-snapshots": "^1.4.4",
     "js-base64": "^2.5.2",
-    "typescript": "^4.1.2"
+    "typescript": "^4.1.2",
+    "webpack": "^4.43.0",
+    "prettier": "^1.19.1",
+    "start-server-and-test": "^1.11.3",
+    "express": "^4.17.1",
+    "http-server": "^0.12.3",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-chai-friendly": "^0.5.0",
+    "eslint-plugin-cypress": "^2.11.1",
+    "eslint-plugin-prettier": "^3.1.1"
+  },
+  "optionalDependencies": {
+    "@cypress/webpack-preprocessor": "^4.1.5"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
-    "step_definitions": "cypress/support/step_definitions/"
+    "stepDefinitions": "cypress/support/stepDefinitions/",
+    "commonPath": "cypress/support/stepDefinitions/common/"
   }
 }

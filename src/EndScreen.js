@@ -1,11 +1,7 @@
-import { Lightning } from "wpe-lightning-sdk";
+import { Lightning } from 'wpe-lightning-sdk';
 
 export default class EndScreen extends Lightning.Component {
-
-    static _template(){
-        return {
-
-        }
-    }
-
+  static _template() {
+    return {};
+  }
 }

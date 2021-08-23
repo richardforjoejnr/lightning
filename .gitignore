@@ -1,8 +1,23 @@
-node_modules
-.DS_store
+
+# Test outcomes not needed
+cypress/videos
+cypress/screenshots
+coverage
+
+# Mc OS files not needed
+**/.DS_Store
+**/Thumbs.db
+
+# Visual Studio Code stuff!
 .idea
+
+# Secrets we should not share widely
+.env
+
+# Directories not needed
 dist
+build
+temp
+node_modules
 releases
 .tmp
-build
-cypress/videos
