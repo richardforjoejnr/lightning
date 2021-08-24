@@ -33,9 +33,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Cypress.io
-      uses: cypress-io/github-action@v2.9.7
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Cypress tests
+      uses: bahmutov/npm-install@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        build: npx cypress info
         cache: 'npm'
+        wait-on: 'http://localhost:808'
     - run: npm run test:cypress
