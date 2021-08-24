@@ -11,7 +11,7 @@ on:
 
 jobs:
   lint:
-    runs-on: macos-lates
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -30,7 +30,7 @@ jobs:
   
   test:
 
-    runs-on: macos-lates
+    runs-on: ubuntu-latest
 
     steps:
     - name: Cypress.io
