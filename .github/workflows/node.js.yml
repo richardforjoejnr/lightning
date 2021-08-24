@@ -34,6 +34,7 @@ jobs:
 
     steps:
     - name: install lng
+      uses: actions/setup-node@v2
     - run: npm install -g rdkcentral/Lightning-CLI 
     steps:
     - name: Checkout
