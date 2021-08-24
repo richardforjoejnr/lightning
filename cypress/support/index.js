@@ -14,27 +14,7 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import './commands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-
-beforeEach(() => {
-    // now this runs prior to every test
-    // across all files no matter what
-    cy.log("BeforeEach")
-  })
-
-  afterEach(function() {
-    if (this.currentTest.state === 'failed') {
-      Cypress.runner.stop()
-    }
-  });
-
-  Cypress.Commands.add('refCy', (value) => {
-    return cy.get(`[ref=${value}]`)
-  })
-
-  Cypress.Commands.add('texturetextCy', (value) => {
-    return cy.get(`[texture-text=${value}]`)
-  })
