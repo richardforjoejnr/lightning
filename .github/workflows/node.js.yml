@@ -11,7 +11,7 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: macos-lates
 
     strategy:
       matrix:
@@ -29,9 +29,12 @@ jobs:
     - run: npm run lint
   
   test:
+
+    runs-on: macos-lates
+
     steps:
-    - name: bastihav/Cypress.io
-      uses: bastihav/github-action@v2.2.6
+    - name: Cypress.io
+      uses: cypress-io/github-action@v2.9.7
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
