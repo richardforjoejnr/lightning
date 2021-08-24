@@ -1,31 +1,26 @@
 import { Then, And } from "cypress-cucumber-preprocessor/steps";
-import MainMenuView from '../../pageObjects/MainMenuView';
-import GameView from '../../pageObjects/GameView';
+import * as TicTac from '../../pageObjects/index';
 
 Then(`I see {string} in the page title`, (title) => {
-  const mainMenuScreen = MainMenuView.getInstance();
-  mainMenuScreen.assertTitleText(title);
+
+  TicTac.mainMenuView.assertTitleText(title);
 })
 
 Then(`{string} is in focus`, (MenuItem) => {
-  const mainMenuScreen = MainMenuView.getInstance();
-  mainMenuScreen.assertFocusIndicator(MenuItem);
+  TicTac.mainMenuView.assertFocusIndicator(MenuItem);
 })
 And(`The version of the app is {string}`, (version) => {
-  const mainMenuScreen = MainMenuView.getInstance();
-  mainMenuScreen.assertTheAppVersion(version)
+  TicTac.mainMenuView.assertTheAppVersion(version)
 })
 
 Then(`There are {string} items in the Menu`, (Items) => {
-  const mainMenuScreen = MainMenuView.getInstance();
-  mainMenuScreen.assertNoOfMenuItems(Items);
+  TicTac.mainMenuView.assertNoOfMenuItems(Items);
 })
 
 Then(`The game is launched`, () => {
-  const gameScreen = GameView.getInstance();
-  gameScreen.assertTitleText("TicTacToe")
-  gameScreen.assertScoreIsPresent()
-  gameScreen.assertGameIsPresent()
+  TicTac.gameView.assertTitleText("TicTacToe")
+  TicTac.gameView.assertScoreIsPresent()
+  TicTac.gameView.assertGameIsPresent()
 })
 
  

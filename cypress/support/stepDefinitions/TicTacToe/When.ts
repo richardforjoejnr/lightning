@@ -1,18 +1,15 @@
 import { When } from "cypress-cucumber-preprocessor/steps";
-import MainMenuView from '../../pageObjects/MainMenuView';
+import * as TicTac from '../../pageObjects/index';
 
 When(`The logo is loaded`, () => {
-    const mainMenuScreen = MainMenuView.getInstance();
-    mainMenuScreen.assertLogoIsPresent();
+    TicTac.mainMenuView.assertLogoIsPresent();
   })
 
  When(`I navigate to {string}`, (direction) => {
-    const mainMenuScreen = MainMenuView.getInstance();
-    mainMenuScreen.navigate(direction);
+    TicTac.mainMenuView.navigate(direction);
   })
   
   When(`I select Start New Game`, () => {
-    const mainMenuScreen = MainMenuView.getInstance();
-    mainMenuScreen.selectStartGame();
+    TicTac.mainMenuView.selectStartGame();
   })
   

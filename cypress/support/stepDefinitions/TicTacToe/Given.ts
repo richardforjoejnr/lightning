@@ -1,9 +1,8 @@
 import { Given } from "cypress-cucumber-preprocessor/steps";
-import MainMenuView from '../../pageObjects/MainMenuView';
+import * as TicTac from '../../pageObjects/index';
 
 Given('I launch the game', () => {
-  const mainMenuScreen = MainMenuView.getInstance();
-  mainMenuScreen.launchApp();
-  mainMenuScreen.assertTitleText('TicTacToe')
+  TicTac.mainMenuView.launchApp();
+  TicTac.mainMenuView.assertTitleText('TicTacToe');
 })
 

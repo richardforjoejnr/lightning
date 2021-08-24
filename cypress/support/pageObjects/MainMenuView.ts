@@ -1,10 +1,11 @@
 /// <reference types="cypress" />
 
 import GameView from './GameView';
+import * as Menu from './../../fixtures/metaData'
 
-const APP_URL = 'http://127.0.0.1:8080/'
+const APP_URL = '/'
 
-const LOGO_COMPONENT = 'div[ref=Logo]:visible'
+const LOGO_COMPONENT = '[ref="Logo"]'
 const MENU_COMPONENT = 'div[ref=Items]'
 const FOCUS_INDICATOR_COMPONENT = 'div[ref=FocusIndicator]:visible'
 const APP_VERSION_COMPONENT = 'div[ref=Text]:visible'
@@ -114,7 +115,8 @@ class MainMenuView {
 
   assertTitleText(text: string)
 {
-    return cy.get(LOGO_COMPONENT).invoke('attr', 'texture-text').should('contain', `${text}`)
+  const assertText = text || Menu.MenuData.title;
+    return cy.get(LOGO_COMPONENT).invoke('attr', 'texture-text').should('contain', `${assertText}`)
 }
 
 assertTheAppVersion(text: string)

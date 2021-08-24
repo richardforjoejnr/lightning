@@ -7,6 +7,11 @@ const GAME_COMPONENT = 'div[ref="Game"]'
 const PLAYER_POSITION = 'div[ref="PlayerPosition"]'
 const LOGO_COMPONENT = 'div[ref=Logo]:visible'
 const APP_VERSION_COMPONENT = 'div[ref=Text]:visible'
+const GAME_SCOREBOARD = '[ref="ScoreBoard"]'
+const GAME_PLAYER = '[ref="Player"]'
+const GAME_AI = '[ref="Ai"]'
+const NOTIFICATION = '[ref="Notification"]'
+const PLAYER_POSTION = '[ref="PlayerPosition"]'
 
 const BODY = 'body'
  
@@ -90,6 +95,16 @@ assertGameIsPresent()
 assertScoreIsPresent()
 {
   cy.get(SCOREBOARD_ITEMS).should('exist');
+}
+
+assertPlayerScore(text: number)
+{
+    return cy.get(GAME_SCOREBOARD).find(GAME_PLAYER).invoke('attr', 'texture-text').should('contain', `Player ${text.toString()}`)
+}
+
+assertAiScore(text: number)
+{
+    return cy.get(GAME_SCOREBOARD).find(GAME_AI).invoke('attr', 'texture-text').should('contain', `Computer ${text.toString()}`)
 }
 
 }
