@@ -25,7 +25,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm install -g rdkcentral/Lightning-CLI 
     - run: npm ci
     - run: npm run lint
   
@@ -41,5 +40,6 @@ jobs:
       uses: bahmutov/npm-install@v1
       with:
         build: npx cypress info
-        wait-on: 'http://localhost:808'   
+        wait-on: 'http://localhost:808'
+    - run: npm install -g rdkcentral/Lightning-CLI    
     - run: npm run test:cypress
