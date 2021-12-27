@@ -8,19 +8,19 @@
     "build": "lng build",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "ci:serve": "lng build && npx http-server build -p 8080",
+    "ci:serve": "lng build && npx http-server build -p 8000",
     "commit": "git-cz",
     "lint": "eslint --fix ./src/*.js ./src/**/*.js",
-    "start:ci": "serve --no-clipboard --listen ${PORT:-8080}",
+    "start:ci": "serve --no-clipboard --listen ${PORT:-8000}",
     "stub": "node -r esm ./stub-server/server.start.js",
-    "test:ci:ui": "start-server-and-test ci:serve http://localhost:8080 cypress:run:ci:ui",
-    "test:cypress": "start-server-and-test ci:serve http://localhost:8080 cy:test",
-    "test:debug": "start-server-and-test ci:serve http://localhost:8080 cypress:open",
+    "test:ci:ui": "start-server-and-test ci:serve http://localhost:8000 cypress:run:ci:ui",
+    "test:cypress": "start-server-and-test ci:serve http://localhost:8000 cy:test",
+    "test:debug": "start-server-and-test ci:serve http://localhost:8000 cypress:open",
     "cypress": "cypress open",
     "cy:run": "cypress run",
     "cy:test": "cypress run --headless",
-    "cy:test:unit": "cypress run --headless --spec 'cypress/integration/unit/**/*'",
-    "cy:test:e2e": "cypress run --headless --spec 'cypress/integration/e2e/**/*'"
+    "cy:test:e2e": "cypress run --headless --spec 'cypress/integration/**/*'",
+    "cy:run:dashboard": "cypress run --record --key 1941a338-1baf-4315-9e95-145a123d4d23 --spec 'cypress/integration/**/*' --headless --config-file './cypress.json'"
   },
   "husky": {
     "hooks": {

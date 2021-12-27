@@ -1,5 +1,5 @@
 {
-  "baseUrl": "http://localhost:8080",
+  "baseUrl": "http://localhost:8000",
   "defaultCommandTimeout": 10000,
   "pageLoadTimeout": 30000,
   "viewportWidth": 1920,
@@ -15,5 +15,6 @@
   "screenshotsFolder": "cypress/screenshots",
   "videosFolder": "cypress/videos",
   "testFiles": "**/*.*",
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "projectId": "omc3vm"
 }
