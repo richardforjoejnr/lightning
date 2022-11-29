@@ -6,6 +6,7 @@
   },
   "scripts": {
     "build": "lng build",
+    "dev": "lng dev",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "ci:serve": "lng build && npx http-server build -p 8000",

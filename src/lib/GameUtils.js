@@ -36,8 +36,8 @@ const getMatchingPatterns = (regex, tiles) => {
  */
 const getFutureWinningIndex = tiles => {
   let index = -1;
-  const player = /(ex{2}|x{2}e|xex)/i;
-  const ai = /(e0{2}|0{2}e|0e0)/i;
+  const player = /(-x{2}|x{2}-|x-x)/i;
+  const ai = /(-o{2}|o{2}-|o-o)/i;
 
   // since we're testing for ai we give prio to letting ourself win
   // instead of blocking the potential win for the player
@@ -45,7 +45,7 @@ const getFutureWinningIndex = tiles => {
 
   if (set.length) {
     set.pop().forEach(tileIndex => {
-      if (tiles[tileIndex] === 'e') {
+      if (tiles[tileIndex] === '-') {
         index = tileIndex;
       }
     });
@@ -62,7 +62,7 @@ export default {
     } else {
       const opt = tiles
         .map((el, idx) => {
-          if (el === 'e') return idx;
+          if (el === '-') return idx;
         })
         .filter(Boolean);
 
@@ -74,7 +74,7 @@ export default {
     }
   },
   getWinner: tiles => {
-    const regex = /(x{3}|0{3})/i;
+    const regex = /(x{3}|o{3})/i;
     const set = getMatchingPatterns(regex, tiles);
     if (set) {
       return tiles[set.join('')[0]];
