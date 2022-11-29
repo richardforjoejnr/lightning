@@ -5,12 +5,12 @@
       "useImageWorker": true,
       "precision": 1
     },
-    "debug": false
+    "debug": true
   },
   "platformSettings": {
     "inspector": true,
     "path": "./static",
-    "log": false,
+    "log": true,
     "showVersion": true,
     "imageServerUrl": "//cdn.metrological.com/image",
     "proxyUrl": "//cdn.metrological.com/proxy",

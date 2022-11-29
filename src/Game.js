@@ -61,8 +61,8 @@ export default class Game extends Lightning.Component {
 
   _reset() {
     // reset tiles
+    this._tiles = ['-', '-', '-', '-', '-', '-', '-', '-', '-'];
     console.log(this._tiles);
-    this._tiles = ['e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e'];
 
     // force render
     this.render(this._tiles);
@@ -110,8 +110,10 @@ export default class Game extends Lightning.Component {
   }
 
   _handleEnter() {
-    if (this._tiles[this._index] === 'e') {
+    console.log(this._tiles[this._index]);
+    if (this._tiles[this._index] === '-') {
       if (this.place(this._index, 'X')) {
+        console.log(this.place(this._index, 'X'));
         this._setState('Computer');
       }
     }
@@ -136,7 +138,7 @@ export default class Game extends Lightning.Component {
       return {
         x: (idx % 3) * 300 + 110,
         y: ~~(idx / 3) * 300 + 90,
-        text: { text: el === 'e' ? '' : `${el}`, fontSize: 100 },
+        text: { text: el === '-' ? '-' : `${el}`, fontSize: 100 },
       };
     });
   }
@@ -153,7 +155,7 @@ export default class Game extends Lightning.Component {
 
           setTimeout(() => {
             if (this.place(position, 'O')) {
-              this._setState('');
+              this._setState('-');
             }
           }, ~~(Math.random() * 1200) + 200);
 
