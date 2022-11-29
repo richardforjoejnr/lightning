@@ -54,12 +54,14 @@ export default class Game extends Lightning.Component {
   _active() {
     this._reset();
     this.tag('Field').children.forEach((el, idx) => {
+      console.log(el, idx);
       el.setSmooth(idx < 2 ? 'w' : 'h', 900, { duration: 0.7, delay: idx * 0.15 });
     });
   }
 
   _reset() {
     // reset tiles
+    console.log(this._tiles);
     this._tiles = ['e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e'];
 
     // force render
@@ -116,6 +118,7 @@ export default class Game extends Lightning.Component {
   }
 
   place(index, marker) {
+    console.log(this._tiles, this._index, marker);
     this._tiles[index] = marker;
     this.render(this._tiles);
 
@@ -149,7 +152,7 @@ export default class Game extends Lightning.Component {
           }
 
           setTimeout(() => {
-            if (this.place(position, '0')) {
+            if (this.place(position, 'O')) {
               this._setState('');
             }
           }, ~~(Math.random() * 1200) + 200);
