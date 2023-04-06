@@ -43,4 +43,4 @@ jobs:
       with:
         build: npx cypress info
         wait-on: 'http://localhost:8000'   
-    - run: npm run test:cypress
+    - run: npm run test:cypress:ci
