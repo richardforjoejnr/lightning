@@ -45,7 +45,7 @@
     "husky": "^4.2.5",
     "cz-conventional-changelog": "3.3.0",
     "concurrently": "^8.0.0",
-    "commitizen": "^4.1.2",
+    "commitizen": "^4.3.0",
     "cypress": "^9.6.1",
     "lint-staged": "^10.1.2",
     "cypress-cucumber-preprocessor": "^4.0.0",
