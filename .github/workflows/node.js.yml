@@ -41,6 +41,5 @@ jobs:
     - name: Cypress tests
       uses: bahmutov/npm-install@v1
       with:
-        build: npx cypress info
-        wait-on: 'http://localhost:8000'   
+        build: npx cypress info 
     - run: npm run test:cypress
