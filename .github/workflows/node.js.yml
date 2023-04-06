@@ -35,11 +35,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - run: npm install -g rdkcentral/Lightning-CLI 
+    - run: npm install -g @lightningjs/cli 
 
     - name: Cypress tests
-      uses: cypress-io/github-action@v2.2.7
+      uses: bahmutov/npm-install@v1
       with:
         build: npx cypress info
-        wait-on: 'http://localhost:8080'   
+        wait-on: 'http://localhost:8000'   
     - run: npm run test:cypress
