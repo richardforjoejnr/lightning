@@ -41,6 +41,5 @@ jobs:
     - name: Cypress tests
       uses: cypress-io/github-action@v5
       with:
-        build: npm run test:serve
-        wait-on: 'http://localhost:8000'   
+        build: npm run test:serve  
     - run: npm run cy:test
