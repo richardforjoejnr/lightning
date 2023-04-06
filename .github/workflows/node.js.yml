@@ -38,8 +38,8 @@ jobs:
     - run: npm install -g rdkcentral/Lightning-CLI 
 
     - name: Cypress tests
-      uses: bahmutov/npm-install@v1
+      uses: cypress-io/github-action@v2.2.7
       with:
         build: npx cypress info
-        wait-on: 'http://localhost:808'   
+        wait-on: 'http://localhost:8080'   
     - run: npm run test:cypress
