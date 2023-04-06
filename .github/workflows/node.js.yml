@@ -39,7 +39,8 @@ jobs:
     - run: npm install -g @lightningjs/cli 
 
     - name: Cypress tests
-      uses: cypress-io/github-action@v5
+      uses: bahmutov/npm-install@v1
       with:
-        build: npm run test:serve  
-    - run: npm run cy:test
+        build: npx cypress info
+        wait-on: 'http://localhost:8000'   
+    - run: pm run test:cypress
