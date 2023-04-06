@@ -15,7 +15,7 @@
     "start:ci": "serve --no-clipboard --listen ${PORT:-8000}",
     "stub": "node -r esm ./stub-server/server.start.js",
     "test:ci:ui": "start-server-and-test ci:serve http://localhost:8000 cypress:run:ci:ui",
-    "test:cypress": "start-server-and-test ci:serve http://localhost:8000 cy:test",
+    "test:cypress": "start-server-and-test ci:serve http://localhost:8000 'npm run cy:test'",
     "test:debug": "start-server-and-test ci:serve http://localhost:8000 cypress:open",
     "cypress": "cypress open",
     "cy:run": "cypress run",
