@@ -39,7 +39,5 @@ jobs:
     - run: npm install -g @lightningjs/cli 
 
     - name: Cypress tests
-      uses: cypress-io/github-action@v5
-      with:
-        build: npx cypress info   
+      uses: cypress-io/github-action@v5  
     - run: npm run test:cypress
