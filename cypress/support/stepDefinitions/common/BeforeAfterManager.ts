@@ -1,16 +1,16 @@
-import { Before, After } from "cypress-cucumber-preprocessor/steps";
+/* eslint-disable no-undef */
+import { Before, After } from 'cypress-cucumber-preprocessor/steps';
 
 Before(() => {
-  cy.log("BEFORE ALL TESTS")
+  cy.log('BEFORE ALL TESTS');
 });
 
-
 After(() => {
-  cy.log("AFTER ALL TESTS")
+  cy.log('AFTER ALL TESTS');
   // cy.reload(true)
 });
 
 // this will only get called before scenarios tagged with @foo
-Before({ tags: "@foo" }, () => {
-  cy.log("BEFORE SCENARIOS TAGGED WITH @FOO")
+Before({ tags: '@foo' }, () => {
+  cy.log('BEFORE SCENARIOS TAGGED WITH @FOO');
 });

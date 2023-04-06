@@ -1,3 +1,5 @@
+/* eslint-disable no-empty */
+/* eslint-disable no-undef */
 import MainMenuView from './pageObjects/MainMenuView';
 // ***********************************************
 // This example commands.js shows you how to
@@ -24,87 +26,78 @@ import MainMenuView from './pageObjects/MainMenuView';
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-Cypress.Commands.add('navigateMenu', (menu) => {
+Cypress.Commands.add('navigateMenu', menu => {
+  // TODO - Logic to navigate to a menu based on the current position
 
-    // TODO - Logic to navigate to a menu based on the current position
-    
-    const mainMenuScreen = MainMenuView.getInstance();
-    
-    let navigateToPosition = 0;
-    const numberOfMenuItems = 4;
+  const mainMenuScreen = MainMenuView.getInstance();
 
-  const currentMenu = mainMenuScreen._getCurrentMenuItem
+  let navigateToPosition = 0;
+  const numberOfMenuItems = 4;
+
+  const currentMenu = mainMenuScreen._getCurrentMenuItem;
   const currentMenuPosition: number = mainMenuScreen._getMenuItemPosition(currentMenu);
   const navigateToMenuPosition: number = mainMenuScreen._getMenuItemPosition(menu);
-  cy.log("TEST", currentMenuPosition, navigateToMenuPosition)
-//     switch(menu) {
-//       case "Start New Game": 
-//         if (currentPosition === 1) {
+  cy.log('TEST', currentMenuPosition, navigateToMenuPosition);
+  //     switch(menu) {
+  //       case "Start New Game":
+  //         if (currentPosition === 1) {
 
-//         }
-//         cy.get('body').type('{uparrow}')
-//         break;
-//       case "down":
-//         cy.get('body').type('{downarrow}')
-//         break;
-//       case "left":
-//         cy.get('body').type('{leftarrow}')
-//         break;
-//       case "right":
-//         cy.get('body').type('{righarrow}')
-//         break;  
-//   }
+  //         }
+  //         cy.get('body').type('{uparrow}')
+  //         break;
+  //       case "down":
+  //         cy.get('body').type('{downarrow}')
+  //         break;
+  //       case "left":
+  //         cy.get('body').type('{leftarrow}')
+  //         break;
+  //       case "right":
+  //         cy.get('body').type('{righarrow}')
+  //         break;
+  //   }
 
-    
+  switch (true) {
+    case currentMenuPosition === 1: {
+      cy.log('Start New Game:', currentMenuPosition);
 
-
-    switch (true) {
-
-        case currentMenuPosition === 1: {
-            cy.log('Start New Game:', currentMenuPosition);
-
-
-            if (navigateToMenuPosition > 1) {
-                const count = navigateToMenuPosition - 1
-                cy.log('Navigate down ' + count + 'times');
-                for (let step = 1; step <= count; step++) {
-                    cy.get('body').type('{downarrow}')
-                  }
-            }
-
-            break;
+      if (navigateToMenuPosition > 1) {
+        const count = navigateToMenuPosition - 1;
+        cy.log('Navigate down ' + count + 'times');
+        for (let step = 1; step <= count; step++) {
+          cy.get('body').type('{downarrow}');
         }
-        case ((currentMenuPosition >= 2) && (currentMenuPosition <= (numberOfMenuItems))): {
+      }
 
-            if (currentMenuPosition === navigateToMenuPosition) {
-                cy.log(' Do nothing');
-            } else if (currentMenuPosition > navigateToMenuPosition) {
-                const count = currentMenuPosition - navigateToMenuPosition
-                cy.log('Navigate up ' + count + 'times');
-                for (let step = 1; step <= count; step++) {
-                    cy.get('body').type('{up}')
-                  }
-
-            } else if (currentMenuPosition < navigateToMenuPosition) {
-                const count = navigateToMenuPosition - currentMenuPosition;
-                cy.log('Navigate down ' + count + 'times');
-                for (let step = 1; step <= count; step++) {
-                    cy.get('body').type('{down}')
-                  }
-            }
-            break;
+      break;
+    }
+    case currentMenuPosition >= 2 && currentMenuPosition <= numberOfMenuItems: {
+      if (currentMenuPosition === navigateToMenuPosition) {
+        cy.log(' Do nothing');
+      } else if (currentMenuPosition > navigateToMenuPosition) {
+        const count = currentMenuPosition - navigateToMenuPosition;
+        cy.log('Navigate up ' + count + 'times');
+        for (let step = 1; step <= count; step++) {
+          cy.get('body').type('{up}');
         }
-        case currentMenuPosition === numberOfMenuItems: {
-
-            if (currentMenuPosition === numberOfMenuItems) {
-            } else if (currentMenuPosition < numberOfMenuItems) {
-                const count = numberOfMenuItems - currentMenuPosition;
-                cy.log('Navigate down ' + count + 'times');
-                for (let step = 1; step <= count; step++) {
-                    cy.get('body').type('{down}')
-                  }
-            }
-            break;
+      } else if (currentMenuPosition < navigateToMenuPosition) {
+        const count = navigateToMenuPosition - currentMenuPosition;
+        cy.log('Navigate down ' + count + 'times');
+        for (let step = 1; step <= count; step++) {
+          cy.get('body').type('{down}');
         }
+      }
+      break;
+    }
+    case currentMenuPosition === numberOfMenuItems: {
+      if (currentMenuPosition === numberOfMenuItems) {
+      } else if (currentMenuPosition < numberOfMenuItems) {
+        const count = numberOfMenuItems - currentMenuPosition;
+        cy.log('Navigate down ' + count + 'times');
+        for (let step = 1; step <= count; step++) {
+          cy.get('body').type('{down}');
         }
-})
+      }
+      break;
+    }
+  }
+});
