@@ -3,7 +3,7 @@
 
 const SCOREBOARD_ITEMS = 'div[ref="ScoreBoard"] div';
 const PLAYER_SCORE_COMPONENT = 'div[ref="Player"]';
-const GAME_COMPONENT = 'div[ref="Games"]';
+const GAME_COMPONENT = 'div[ref="Game"]';
 const PLAYER_POSITION = 'div[ref="PlayerPosition"]';
 const LOGO_COMPONENT = 'div[ref=Logo]:visible';
 const APP_VERSION_COMPONENT = 'div[ref=Text]:visible';
