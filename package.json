@@ -16,7 +16,7 @@
     "stub": "node -r esm ./stub-server/server.start.js",
     "test:ci:ui": "start-server-and-test ci:serve http://localhost:8000 cypress:run:ci:ui",
     "test:cypress": "start-server-and-test ci:serve http://localhost:8000 'npm run cy:test'",
-    "test:cypress:ci": "concurrently --success first \"npm run ci:serve\" \"npm run cy:test\"",
+    "test:cypress:ci": "concurrently --success last \"npm run ci:serve\" \"npm run cy:test\"",
     "test:debug": "start-server-and-test ci:serve http://localhost:8000 cypress:open",
     "cypress": "cypress open",
     "cy:run": "cypress run",
